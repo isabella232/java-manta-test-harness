@@ -15,18 +15,14 @@ import com.joyent.test.util.MantaFunction;
 import com.joyent.test.util.RandomInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.input.CountingInputStream;
 import org.apache.commons.lang3.BooleanUtils;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.*;
 
 import java.io.*;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -112,29 +108,6 @@ public class MantaClientPutIT {
 
             Assert.assertEquals(actual, TEST_DATA,
                     "Uploaded string didn't match expectation");
-        }
-    }
-
-    @Test
-    public final void testPutWithMarkSupportedStream() throws IOException, URISyntaxException {
-        final String name = UUID.randomUUID().toString();
-        final String path = testPathPrefix + name;
-        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        Assert.assertNotNull(classLoader.getResource(TEST_FILENAME));
-
-        try (InputStream testDataInputStream = classLoader.getResourceAsStream(TEST_FILENAME);
-             CountingInputStream countingInputStream = new CountingInputStream(testDataInputStream)) {
-            Assert.assertTrue(countingInputStream.markSupported());
-            mantaClient.put(path, countingInputStream);
-            Assert.assertTrue(mantaClient.existsAndIsAccessible(path));
-
-            File localFile = Paths.get(classLoader.getResource(TEST_FILENAME).toURI()).toFile();
-            byte[] expectedBytes = FileUtils.readFileToByteArray(localFile);
-
-            try (MantaObjectInputStream in = mantaClient.getAsInputStream(path)) {
-                byte[] actualBytes = IOUtils.readFully(in, (int) localFile.length());
-                AssertJUnit.assertArrayEquals(expectedBytes, actualBytes);
-            }
         }
     }
 
