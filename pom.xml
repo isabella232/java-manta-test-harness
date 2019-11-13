@@ -44,6 +44,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- Dependency versions -->
+        <dependency.java-manta-client-unshaded.version>3.4.1</dependency.java-manta-client-unshaded.version>
+        <dependency.java-manta-it.version>3.4.1</dependency.java-manta-it.version>
+        <dependency.http-signature.version>4.0.10</dependency.http-signature.version>
+        <dependency.mockito-core.version>2.24.5</dependency.mockito-core.version>
+        <dependency.kryo.version>4.0.2</dependency.kryo.version>
+        <dependency.commons-collections.version>4.3</dependency.commons-collections.version>
+        <dependency.commons-lang.version>3.8.1</dependency.commons-lang.version>
+        <dependency.commons-text.version>1.6</dependency.commons-text.version>
+        <dependency.commons-codec.version>1.12</dependency.commons-codec.version>
+        <dependency.commons-io.version>2.6</dependency.commons-io.version>
+        <dependency.fasterxml-uuid>3.1.5</dependency.fasterxml-uuid>
+        <dependency.logback-classic.version>1.2.3</dependency.logback-classic.version>
+        <dependency.testng.version>6.14.3</dependency.testng.version>
+
         <!-- Plugin versions -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
@@ -58,7 +73,7 @@
         <dependency>
             <groupId>com.joyent.manta</groupId>
             <artifactId>java-manta-client-unshaded</artifactId>
-            <version>3.4.1</version>
+            <version>${dependency.java-manta-client-unshaded.version}</version>
         </dependency>
         <!-- Library for authenticating requests against Manta -->
         <!-- Kryo serialization library for use with testing serialization
@@ -66,7 +81,7 @@
         <dependency>
             <groupId>com.esotericsoftware</groupId>
             <artifactId>kryo</artifactId>
-            <version>4.0.2</version>
+            <version>${dependency.kryo.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -82,7 +97,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.24.5</version>
+            <version>${dependency.mockito-core.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -95,7 +110,7 @@
         <dependency>
             <groupId>com.joyent.http-signature</groupId>
             <artifactId>apache-http-client-signature</artifactId>
-            <version>4.0.10</version>
+            <version>${dependency.http-signature.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.httpcomponents</groupId>
@@ -111,32 +126,27 @@
         <dependency>
             <groupId>com.joyent.manta</groupId>
             <artifactId>java-manta-it</artifactId>
-            <version>3.4.1</version>
+            <version>${dependency.java-manta-it.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
-            <version>4.3</version>
+            <version>${dependency.commons-collections.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
+            <version>${dependency.commons-lang.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
-            <version>1.6</version>
+            <version>${dependency.commons-text.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -149,21 +159,21 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.12</version>
+            <version>${dependency.commons-codec.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>${dependency.commons-io.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- Library for generating more robust UUIDs -->
         <dependency>
             <groupId>com.fasterxml.uuid</groupId>
             <artifactId>java-uuid-generator</artifactId>
-            <version>3.1.5</version>
+            <version>${dependency.fasterxml-uuid}</version>
             <exclusions>
                 <exclusion>
                     <groupId>log4j</groupId>
@@ -176,7 +186,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>${dependency.logback-classic.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -189,7 +199,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>${dependency.testng.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -296,6 +306,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M3</version>
                 <executions>
                     <execution>
                         <id>integration-tests</id>

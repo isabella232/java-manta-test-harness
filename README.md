@@ -1,6 +1,6 @@
 # Java Manta Test Harness
 
-[jav-manta-test-harness](https://github.com/nairashwin952013/java-manta-test-harness) is a community-maintained Java
+[java-manta-test-harness](https://github.com/nairashwin952013/java-manta-test-harness) is a community-maintained Java
 testing app used for verifying Java 11 support by [java-manta](https://github.com/joyent/java-manta) client SDK for manta.
 
 ## Installation
@@ -9,12 +9,12 @@ testing app used for verifying Java 11 support by [java-manta](https://github.co
 be installed by adding the following dependency using [Maven 3.5.x](https://maven.apache.org/):
 
 ### Using Maven
-Add the latest java-manta-client dependency to your Maven `pom.xml`.
+Add the latest java-manta-client-unshaded dependency to your Maven `pom.xml`.
 
 ```
 <dependency>
     <groupId>com.joyent.manta</groupId>
-    <artifactId>java-manta-client</artifactId>
+    <artifactId>java-manta-client-unshaded</artifactId>
     <version>LATEST</version>
 </dependency>
 ```
@@ -23,25 +23,21 @@ Consult [Maven Central search](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%
 for a list of all available versions and dependency strings for other project types.
 
 Note: Users are expected to use the same version across sub-packages, e.g. using
-`com.joyent.manta:java-manta-client:3.0.0` with
+`com.joyent.manta:java-manta-client-unshaded:3.0.0` with
 `com.joyent.manta:java-http-signature:4.0.10` is not supported.
 
-#### Minimizing bundled dependencies
-
-A separate artifact published as `java-manta-client-unshaded` can optionally be used in place of `java-manta-client` if
-users want precise control over dependency resolution. This is only recommended for users comfortable with
-debugging Maven dependency resolution and usage of [Maven Enforcer's Dependency Convergence
-Rule](http://maven.apache.org/enforcer/enforcer-rules/dependencyConvergence.html) is *strongly* encouraged.
+It's important to note that a separate artifact published as `java-manta-client` can optionally be used in place of 
+`java-manta-client-unshaded` if users want less control over dependency resolution.
 
 ## From Source
 If you prefer to build from source, you'll also need
 [Maven](https://maven.apache.org/), and then invoke:
 
 ```
-$ mvn clean insatll
+$ mvn clean install
 ```
 
-If you want to skip running of the test suite use the `-DskipTests` property, e.g. `mvn -DskipTests package`.
+If you want to skip running of the test suite use the `-DskipITs` property, e.g. `mvn clean install -DskipITs`.
 
 ## Configuration
 
