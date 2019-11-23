@@ -1,6 +1,6 @@
 # Java Manta Test Harness
 
-[java-manta-test-harness](https://github.com/nairashwin952013/java-manta-test-harness) is a community-maintained Java
+[java-manta-test-harness](https://github.com/joyent/java-manta-test-harness) is a community-maintained Java
 testing app used for verifying Java 11 support by [java-manta](https://github.com/joyent/java-manta) client SDK for manta.
 
 ## Installation

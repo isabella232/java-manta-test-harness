@@ -25,15 +25,15 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/nairashwin952013/java-manta-test-harness</connection>
-        <developerConnection>scm:git:git://github.com/nairashwin952013/java-manta-test-harness.git</developerConnection>
-        <url>git@github.com:nairashwin952013/java-manta-test-harness.git</url>
+        <connection>scm:git:git://github.com/joyent/java-manta-test-harness</connection>
+        <developerConnection>scm:git:git://github.com/joyent/java-manta-test-harness.git</developerConnection>
+        <url>git@github.com:joyent/java-manta-test-harness.git</url>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
         <system>github.com</system>
-        <url>https://github.com/nairashwin952013/java-manta-test-harness/issues</url>
+        <url>https://github.com/joyent/java-manta-test-harness/issues</url>
     </issueManagement>
 
     <properties>
